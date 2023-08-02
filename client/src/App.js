@@ -1,13 +1,15 @@
-
-import './App.css';
-
+import "./App.css";
+// components
+import Header from "./components/Header";
+import Todos from "./components/Todos";
+import TodoForm from "./components/TodoForm";
 function App() {
   return (
-    
     <div>
-      hellow world
-     </div>
-   
+      <Header />
+      <TodoForm />
+      <Todos />
+    </div>
   );
 }
 

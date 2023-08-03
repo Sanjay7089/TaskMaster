@@ -5,6 +5,9 @@ import { deleteTodo } from "../store/actions";
 
 import { useDispatch } from "react-redux";
 
+//icons
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import EditNoteOutlinedIcon from "@mui/icons-material/EditNoteOutlined";
 const Todo = ({ todo }) => {
   const [editing, setEditing] = useState(false);
   const [text, setText] = useState(todo?.data);
@@ -44,13 +47,13 @@ const Todo = ({ todo }) => {
       </form>
 
       <span className="icon" onClick={() => dispatch(deleteTodo(todo._id))}>
-        <i className="fas fa-trash" />
+        <DeleteOutlineOutlinedIcon />
       </span>
       <span
         className="icon"
         onClick={() => setEditing((prevState) => !prevState)}
       >
-        <i className="fas fa-pen" />
+        <EditNoteOutlinedIcon />
       </span>
     </li>
   );

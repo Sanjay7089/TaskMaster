@@ -1,24 +1,22 @@
-//jshint esversion:6
-
 import express from "express";
-import bodyParser from "body-parser";
 import cors from "cors";
-import connection from "./Database/db.js";
+import bodyParser from "body-parser";
+
+import Connection from "./database/db.js";
+import Routes from "./routes/routes.js";
+
 const app = express();
+
+const PORT = process.env.PORT || 8000;
 app.use(cors());
-app.set("view engine", "ejs");
-const PORT = process.env.PORT || 3000;
+
+app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-import dotenv from "dotenv";
-dotenv.config();
-// app.use(express.static("public"));
-// const date = require(__dirname + "/date.js");
 
-connection();
-app.get("/", (req, res) => {
-  console.log("hellow world");
-});
+app.use("/", Routes);
 
-app.listen(PORT, function () {
-  console.log(`Server started on port ${PORT}`);
-});
+Connection();
+
+app.listen(PORT, () =>
+  console.log(`Your server is running successfully on PORT ${PORT}`)
+);

@@ -9,7 +9,6 @@ import {
   DELETE_TODO,
   TOGGLE_TAB,
 } from "./type";
-import { useEffect } from "react";
 
 const API_URL = "http://localhost:8000";
 

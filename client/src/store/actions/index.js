@@ -29,7 +29,6 @@ export const getAllTodos = () => async (dispatch) => {
     // Show loading toast
     const res = await axios.get(`${API_URL}/todos`);
     console.log(res);
-    
 
     dispatch({ type: GETALL_TODO, payload: res.data });
   } catch (error) {
